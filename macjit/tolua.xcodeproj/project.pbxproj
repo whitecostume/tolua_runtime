@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		844235871C58CB95001EB305 /* libluajit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 844235861C58CB95001EB305 /* libluajit.a */; };
 		84F8B8B11C45677A00AE9B8F /* pb.c in Sources */ = {isa = PBXBuildFile; fileRef = 84F8B8B01C45677A00AE9B8F /* pb.c */; };
 		84F8B8B31C45678E00AE9B8F /* tolua.c in Sources */ = {isa = PBXBuildFile; fileRef = 84F8B8B21C45678E00AE9B8F /* tolua.c */; };
 		84F8B8B51C45679700AE9B8F /* struct.c in Sources */ = {isa = PBXBuildFile; fileRef = 84F8B8B41C45679700AE9B8F /* struct.c */; };
@@ -28,6 +27,7 @@
 		84F8B8E81C4567C100AE9B8F /* udp.c in Sources */ = {isa = PBXBuildFile; fileRef = 84F8B8D31C4567C100AE9B8F /* udp.c */; };
 		84F8B8E91C4567C100AE9B8F /* unix.c in Sources */ = {isa = PBXBuildFile; fileRef = 84F8B8D51C4567C100AE9B8F /* unix.c */; };
 		84F8B8EA1C4567C100AE9B8F /* usocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 84F8B8D71C4567C100AE9B8F /* usocket.c */; };
+		D09F19962CE0F5B3002B367B /* libluajit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D09F19952CE0F5B3002B367B /* libluajit.a */; };
 		D0CFA02A2CE092E2004E1AAB /* int64.c in Sources */ = {isa = PBXBuildFile; fileRef = D0CFA0292CE092E2004E1AAB /* int64.c */; };
 		D0CFA02C2CE09304004E1AAB /* uint64.c in Sources */ = {isa = PBXBuildFile; fileRef = D0CFA02B2CE09304004E1AAB /* uint64.c */; };
 		D0CFA02E2CE09421004E1AAB /* fpconv.c in Sources */ = {isa = PBXBuildFile; fileRef = D0CFA02D2CE09421004E1AAB /* fpconv.c */; };
@@ -40,7 +40,6 @@
 		0F4B04D71800959F002EA938 /* tolua-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tolua-Info.plist"; sourceTree = "<group>"; };
 		0F4B04D91800959F002EA938 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0F4B04DB1800959F002EA938 /* tolua-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tolua-Prefix.pch"; sourceTree = "<group>"; };
-		844235861C58CB95001EB305 /* libluajit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libluajit.a; sourceTree = "<group>"; };
 		84F8B8B01C45677A00AE9B8F /* pb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pb.c; path = ../../pb.c; sourceTree = "<group>"; };
 		84F8B8B21C45678E00AE9B8F /* tolua.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tolua.c; path = ../../tolua.c; sourceTree = "<group>"; };
 		84F8B8B41C45679700AE9B8F /* struct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = struct.c; path = ../../struct.c; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		84F8B8D61C4567C100AE9B8F /* unix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unix.h; sourceTree = "<group>"; };
 		84F8B8D71C4567C100AE9B8F /* usocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = usocket.c; sourceTree = "<group>"; };
 		84F8B8D81C4567C100AE9B8F /* usocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = usocket.h; sourceTree = "<group>"; };
+		D09F19952CE0F5B3002B367B /* libluajit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libluajit.a; sourceTree = SOURCE_ROOT; };
 		D0CFA0292CE092E2004E1AAB /* int64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = int64.c; path = ../int64.c; sourceTree = "<group>"; };
 		D0CFA02B2CE09304004E1AAB /* uint64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = uint64.c; path = ../uint64.c; sourceTree = "<group>"; };
 		D0CFA02D2CE09421004E1AAB /* fpconv.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fpconv.c; path = ../cjson/fpconv.c; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844235871C58CB95001EB305 /* libluajit.a in Frameworks */,
+				D09F19962CE0F5B3002B367B /* libluajit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +107,6 @@
 				D0CFA02B2CE09304004E1AAB /* uint64.c */,
 				D0CFA0292CE092E2004E1AAB /* int64.c */,
 				0F4B04D51800959F002EA938 /* tolua */,
-				0F4B04D21800959F002EA938 /* Frameworks */,
 				0F4B04D11800959F002EA938 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,14 +120,6 @@
 			path = tolua;
 			sourceTree = "<group>";
 		};
-		0F4B04D21800959F002EA938 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				844235861C58CB95001EB305 /* libluajit.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		0F4B04D51800959F002EA938 /* tolua */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +127,7 @@
 				84F8B8B61C45679C00AE9B8F /* lpeg.c */,
 				84F8B8B21C45678E00AE9B8F /* tolua.c */,
 				84F8B8B41C45679700AE9B8F /* struct.c */,
+				D09F19952CE0F5B3002B367B /* libluajit.a */,
 				84F8B8B01C45677A00AE9B8F /* pb.c */,
 				0F4B04D61800959F002EA938 /* Supporting Files */,
 			);
@@ -348,7 +340,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -360,6 +352,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -367,8 +360,11 @@
 		0F4B04DF1800959F002EA938 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_EXTENSION = a;
+				EXECUTABLE_PREFIX = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tolua/tolua-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -380,7 +376,8 @@
 				INFOPLIST_FILE = "tolua/tolua-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
-				ONLY_ACTIVE_ARCH = NO;
+				MACH_O_TYPE = mh_bundle;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ameng.tolua;
 				PRODUCT_NAME = tolua;
@@ -392,8 +389,11 @@
 		0F4B04E01800959F002EA938 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_EXTENSION = a;
+				EXECUTABLE_PREFIX = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tolua/tolua-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -405,10 +405,11 @@
 				INFOPLIST_FILE = "tolua/tolua-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../luajit-2.1/src",
+					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				MACH_O_TYPE = mh_bundle;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ameng.tolua;
 				PRODUCT_NAME = tolua;
