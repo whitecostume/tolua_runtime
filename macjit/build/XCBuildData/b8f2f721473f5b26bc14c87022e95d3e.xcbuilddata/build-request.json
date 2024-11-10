@@ -9,7 +9,7 @@
       "guid" : "8a9f59a87077593d208356ea890b02ae2cd2602d7bd5f092cf8a9120e73bc821"
     }
   ],
-  "containerPath" : "/Users/igg/Downloads/tolua_runtime-master/macjit/tolua.xcodeproj",
+  "containerPath" : "/Users/igg/Documents/tolua_runtime/macjit/tolua.xcodeproj",
   "continueBuildingAfterErrors" : false,
   "enableIndexBuildArena" : false,
   "hideShellScriptEnvironment" : false,

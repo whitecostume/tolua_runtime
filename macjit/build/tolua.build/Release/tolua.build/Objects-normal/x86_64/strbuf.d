@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/igg/Downloads/tolua_runtime-master/macjit/tolua/tolua-Prefix.pch \
-  /Users/igg/Downloads/tolua_runtime-master/cjson/strbuf.c \
-  /Users/igg/Downloads/tolua_runtime-master/cjson/strbuf.h
+  /Users/igg/Documents/tolua_runtime/macjit/tolua/tolua-Prefix.pch \
+  /Users/igg/Documents/tolua_runtime/cjson/strbuf.c \
+  /Users/igg/Documents/tolua_runtime/cjson/strbuf.h
