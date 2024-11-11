@@ -69,9 +69,9 @@ jobs:
                     wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r15c-linux-x86_64.zip
                     sudo apt install unzip -y
                     unzip -q NDK
-                    export ANDROID_NDK_HOME=$(pwd)/android-ndk-r15c
                 - name: Build
                   run: |
+                    export ANDROID_NDK_HOME=$(pwd)/android-ndk-r15c
                     chmod 777 ./build_arm64.sh
                     ./build_arm64.sh
                 - name: Install NDK r10e
@@ -80,9 +80,9 @@ jobs:
                     wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
                     sudo apt install unzip -y
                     unzip -q NDK
-                    export ANDROID_NDK_HOME=$(pwd)/android-ndk-r10e
                 - name: Build
                   run: |
+                    export ANDROID_NDK_HOME=$(pwd)/android-ndk-r10e
                     chmod 777 ./build_arm.sh
                     ./build_arm.sh
                 - name: Upload

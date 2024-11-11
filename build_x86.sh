@@ -16,6 +16,6 @@ cd ../../android
 $NDK/ndk-build clean APP_ABI="armeabi-v7a,x86"
 $NDK/ndk-build APP_ABI="x86"
 
-../Plugins/Android/libs/x86
+mkdir -p ../Plugins/Android/libs/x86
 cp libs/x86/libtolua.so ../Plugins/Android/libs/x86
 $NDK/ndk-build clean APP_ABI="armeabi-v7a,x86"

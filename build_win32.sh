@@ -11,6 +11,8 @@ mingw32-make clean
 
 cd ..
 
+mkdir -p ../Plugins/x86
+
 gcc -m32 -O2 -std=gnu99 -shared \
 	int64.c \
 	uint64.c \
