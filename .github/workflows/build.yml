@@ -18,6 +18,6 @@ jobs:
                - name: Upload
                  uses: actions/upload-artifact@v4
                  with:
-                    path: ./Plugins/tolua.bundle/**/*
-                    name: tolua
+                    path: ./Plugins/**/*
+                    name: tolua-osx
                     compression-level: 0
