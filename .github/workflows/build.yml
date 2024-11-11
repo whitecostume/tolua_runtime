@@ -85,10 +85,9 @@ jobs:
                     sudo apt install unzip -y
                     unzip -q NDK
                     sudo apt-get install libncurses5
-                - name: Build
+                - name: Build arm64
                   run: |
                     export ANDROID_NDK_HOME=$(pwd)/android-ndk-r15c
-                    echo $ANDROID_NDK_HOME
                     chmod 777 ./build_arm64.sh
                     ./build_arm64.sh
                 - name: Install NDK r10e
@@ -97,9 +96,11 @@ jobs:
                     sudo apt install unzip -y
                     unzip -q NDK
                     # sudo apt-get install libncurses5:i386
-                - name: Build
+                - name: Build arm
                   run: |
                     export ANDROID_NDK_HOME=$(pwd)/android-ndk-r10e
+                    echo $ANDROID_NDK_HOME
+                    ls
                     chmod 777 ./build_arm.sh
                     ./build_arm.sh
                 - name: Upload
