@@ -14,6 +14,8 @@ echo -e "\n[MAINTAINCE] build libluajit.a done\n"
 
 cd ..
 
+mkdir -p Plugins/ubuntu
+
 gcc -m64 -O2 -std=gnu99 -shared \
  tolua.c \
  int64.c \

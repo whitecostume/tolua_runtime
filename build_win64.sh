@@ -11,7 +11,7 @@ mingw32-make clean
 
 cd ..
 
-mkdir -p ../Plugins/x86_64
+mkdir -p Plugins/x86_64
 
 gcc -m64 -O2 -std=gnu99 -shared \
  tolua.c \
