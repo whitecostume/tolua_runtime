@@ -96,6 +96,7 @@ jobs:
                     sudo apt install unzip -y
                     unzip -q NDK
                     # sudo apt-get install libncurses5:i386
+                    sudo apt-get install gcc-multilib
                 - name: Build arm
                   run: |
                     export ANDROID_NDK_HOME=$(pwd)/android-ndk-r10e
