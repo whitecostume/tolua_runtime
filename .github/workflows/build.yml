@@ -68,6 +68,7 @@ jobs:
                     wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r15c-linux-x86_64.zip
                     sudo apt install unzip -y
                     unzip -q NDK
+                    sudo apt-get install libncurses5
                 - name: Build
                   run: |
                     export ANDROID_NDK_HOME=$(pwd)/android-ndk-r15c
@@ -79,6 +80,7 @@ jobs:
                     wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
                     sudo apt install unzip -y
                     unzip -q NDK
+                    sudo apt-get install libncurses5:i386
                 - name: Build
                   run: |
                     export ANDROID_NDK_HOME=$(pwd)/android-ndk-r10e
