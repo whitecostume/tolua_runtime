@@ -118,7 +118,7 @@ jobs:
                     merge-multiple: true
                 - run: ls -R tolua
                 - name: 'Tar files'
-                  run: tar -cvf tolua.tar tolua/
+                  run: tar -cvf tolua_runtime.tar tolua/
                 - name: Create Release
                   uses: softprops/action-gh-release@v2
                   with:
