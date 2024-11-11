@@ -57,6 +57,22 @@ jobs:
                     path: ./Plugins/**/*
                     name: tolua-win
                     compression-level: 0
+  
+    linux:
+        runs-on: ubuntu-latest
+    
+        steps:
+                - uses: actions/checkout@v2
+                - name: Build
+                  run: |
+                    # ./build_win32.sh
+                    ./build_ubuntu.sh
+                - name: Upload
+                  uses: actions/upload-artifact@v4
+                  with:
+                    path: ./Plugins/**/*
+                    name: tolua-linux
+                    compression-level: 0
 
     android:
         runs-on: ubuntu-latest
@@ -80,7 +96,7 @@ jobs:
                     wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
                     sudo apt install unzip -y
                     unzip -q NDK
-                    sudo apt-get install libncurses5:i386
+                    # sudo apt-get install libncurses5:i386
                 - name: Build
                   run: |
                     export ANDROID_NDK_HOME=$(pwd)/android-ndk-r10e
