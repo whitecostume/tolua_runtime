@@ -4,7 +4,7 @@ cd luajit-2.1/src
 NDK=D:/android-ndk-r10e
 NDKABI=19
 NDKVER=$NDK/toolchains/x86-4.9
-NDKP=$NDKVER/prebuilt/windows-x86_64/bin/i686-linux-android-
+NDKP=$NDKVER/prebuilt/linux-x86_64/bin/i686-linux-android-
 NDKF="--sysroot $NDK/platforms/android-$NDKABI/arch-x86"
 
 make clean
@@ -15,5 +15,7 @@ make clean
 cd ../../android
 $NDK/ndk-build clean APP_ABI="armeabi-v7a,x86"
 $NDK/ndk-build APP_ABI="x86"
+
+../Plugins/Android/libs/x86
 cp libs/x86/libtolua.so ../Plugins/Android/libs/x86
 $NDK/ndk-build clean APP_ABI="armeabi-v7a,x86"

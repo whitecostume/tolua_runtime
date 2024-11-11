@@ -5,7 +5,7 @@ NDK=$ANDROID_NDK_HOME
 NDKABI=21
 NDKTRIPLE=aarch64-linux-android
 NDKVER=$NDK/toolchains/aarch64-linux-android-4.9
-NDKP=$NDKVER/prebuilt/windows-x86_64/bin/aarch64-linux-android-
+NDKP=$NDKVER/prebuilt/linux-x86_64/bin/aarch64-linux-android-
 NDKF="--sysroot $NDK/platforms/android-$NDKABI/arch-arm64" 
 NDKARCH="-DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1 -DLUAJIT_ENABLE_GC64=1"
 
@@ -17,5 +17,7 @@ make clean
 cd ../../android
 $NDK/ndk-build clean APP_ABI="armeabi-v7a,x86,arm64-v8a" APP_PLATFORM=android-21
 $NDK/ndk-build APP_ABI="arm64-v8a" APP_PLATFORM=android-21
+
+mkdir -p ../Plugins/Android/libs/arm64-v8a
 cp libs/arm64-v8a/libtolua.so ../Plugins/Android/libs/arm64-v8a
 $NDK/ndk-build clean APP_ABI="armeabi-v7a,x86,arm64-v8a" APP_PLATFORM=android-21
