@@ -99,8 +99,6 @@ jobs:
                 - name: Build arm
                   run: |
                     export ANDROID_NDK_HOME=$(pwd)/android-ndk-r10e
-                    echo $ANDROID_NDK_HOME
-                    ls
                     chmod 777 ./build_arm.sh
                     ./build_arm.sh
                 - name: Upload
