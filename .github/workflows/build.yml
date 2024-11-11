@@ -123,7 +123,6 @@ jobs:
                     name: Release ${{ github.ref }}
                     files: |
                       ./tolua/**/*
-                    token: ${{ secrets.GITHUB_TOKEN }}
                   
                 
 
