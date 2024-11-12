@@ -35,10 +35,10 @@ set(src_files ../tolua.c
 add_library(${PROJECT_NAME} SHARED ${src_files})	
 
 
-target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/../luajit-2.1/src)
-target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/../)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../luajit-2.1/src)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -O2")
-target_compile_options(${PROJECT_NAME} INTERFACE -O2 -std=gnu99)
+target_compile_options(${PROJECT_NAME} PRIVATE -O2 -std=gnu99)
 
-target_link_libraries(${PROJECT_NAME} INTERFACE libluajit)
+target_link_libraries(${PROJECT_NAME} PRIVATE libluajit)
