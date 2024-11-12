@@ -84,7 +84,6 @@ jobs:
                       unzip -o -d ./ native-linux-x64-4.1.7.5-Release.zip
                 - name: Build
                   run: |
-                    cd build
                     chmod +x build_ohos_arm64.sh
                     export OHOS_SDK=~/ohos-sdk/linux 
                     ./build_ohos_arm64.sh
