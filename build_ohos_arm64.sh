@@ -1,6 +1,6 @@
 # OpenHarmony/ARM64, armeabi-v8a
-dynamic_cc=${OHOS_SDK}/native/llvm/bin/aarch64-linux-ohos-clang
-target_ld=${OHOS_SDK}/native/llvm/bin/aarch64-linux-ohos-clang
+dynamic_cc=${OHOS_SDK}/native/llvm/bin/aarch64-unknown-linux-ohos-clang
+target_ld=${OHOS_SDK}/native/llvm/bin/aarch64-unknown-linux-ohos-clang
 static_cc=${dynamic_cc}
 export target_ar="${OHOS_SDK}/native/llvm/bin/llvm-ar rcus 2>/dev/null"
 target_strip=${OHOS_SDK}/native/llvm/bin/llvm-strip
