@@ -11,7 +11,7 @@ toolchain_tool=${OHOS_SDK}/native/build/cmake/ohos.toolchain.cmake
 cd luajit-2.1/src
 
 make clean
-make -j32 HOST_CC="gcc -m32" CFLAGS="-fPIC" DYNAMIC_CC=${dynamic_cc} TARGET_LD=${target_ld} STATIC_CC=${static_cc} TARGET_AR="${target_ar}" TARGET_STRIP=${target_strip} 
+make -j32 HOST_CC="gcc -m32" CFLAGS="-fPIC" XCFLAGS=-DLUAJIT_DISABLE_JIT DYNAMIC_CC=${dynamic_cc} TARGET_LD=${target_ld} STATIC_CC=${static_cc} TARGET_AR="${target_ar}" TARGET_STRIP=${target_strip} 
 cp ./libluajit.a ../../openharmony/libluajit.a
 make clean
 
