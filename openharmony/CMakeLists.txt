@@ -1,16 +1,18 @@
 cmake_minimum_required(VERSION 3.6)
 
-project(libluajit)
+project(tolua)
+
+# 导入 libluajit 静态库
 add_library(libluajit STATIC IMPORTED GLOBAL)
 set_target_properties(libluajit PROPERTIES IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/libluajit.a" )
 
 set(LOCAL_FORCE_STATIC_EXECUTABLE true)
-project(tolua)
-target_include_directories(tolua INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/../luajit-2.1/src)
-target_include_directories(tolua INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/../)
+
+target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/../luajit-2.1/src)
+target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/../)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -O2")
-target_compile_options(tolua INTERFACE -O2 -std=gnu99)
+target_compile_options(${PROJECT_NAME} INTERFACE -O2 -std=gnu99)
 set(src_files ../tolua.c
             ../int64.c
             ../uint64.c
@@ -35,5 +37,5 @@ set(src_files ../tolua.c
             ../luasocket/usocket.c
              )
 
-add_library(tolua SHARED ${src_files})		
-target_link_libraries(tolua INTERFACE libluajit)
+add_library(${PROJECT_NAME} SHARED ${src_files})		
+target_link_libraries(${PROJECT_NAME} INTERFACE libluajit)
