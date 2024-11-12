@@ -4,6 +4,8 @@ target_ld=${OHOS_SDK}/native/llvm/bin/aarch64-unknown-linux-ohos-clang
 static_cc=${dynamic_cc}
 export target_ar="${OHOS_SDK}/native/llvm/bin/llvm-ar rcus 2>/dev/null"
 target_strip=${OHOS_SDK}/native/llvm/bin/llvm-strip
+cmake_tool=${OHOS_SDK}/native/build-tools/cmake/bin/cmake
+toolchain_tool=${OHOS_SDK}/native/build/cmake/ohos.toolchain.cmake
 
 
 cd luajit-2.1/src
@@ -16,7 +18,7 @@ make clean
 cd ../../openharmony
 mkdir -p build  # 创建一个构建目录
 cd build
-${OHOS_SDK}/native/build-tools/cmake/bin/cmake -DCMAKE_TOOLCHAIN_FILE=${OHOS_SDK}/native/build/cmake/ohos.toolchain.cmake ..  -L 
+${cmake_tool} -DCMAKE_TOOLCHAIN_FILE=${toolchain_tool} ..  -L 
 make -j32
 ls
 cd ..
