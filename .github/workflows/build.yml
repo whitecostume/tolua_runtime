@@ -75,7 +75,7 @@ jobs:
     
         steps:
                 - uses: actions/checkout@v4
-                - name: Install NDK
+                - name: Install OHOS SDK
                   run: |
                       cd ~
                       curl -O https://repo.huaweicloud.com/harmonyos/os/4.1-Release/ohos-sdk-windows_linux-public.tar.gz
@@ -85,7 +85,7 @@ jobs:
                 - name: Build
                   run: |
                     cd build
-                    chmod +x make_ohos_lua5*.sh
+                    chmod +x build_ohos_arm64.sh
                     export OHOS_SDK=~/ohos-sdk/linux 
                     ./build_ohos_arm64.sh
                 - name: Upload
