@@ -14,8 +14,11 @@ cp ./libluajit.a ../../openharmony/libluajit.a
 make clean
 
 cd ../../openharmony
-${OHOS_SDK}/native/build-tools/cmake/bin/cmake -DCMAKE_TOOLCHAIN_FILE=${OHOS_SDK}/native/build/cmake/ohos.toolchain.cmake  -L 
-make
-mkdir -p ../Plugins/openharmony/libs/arm64-v8a
+mkdir -p build  # 创建一个构建目录
+cd build
+${OHOS_SDK}/native/build-tools/cmake/bin/cmake -DCMAKE_TOOLCHAIN_FILE=${OHOS_SDK}/native/build/cmake/ohos.toolchain.cmake ..  -L 
+make -j32
 ls
-cp openharmony/libtolua.so ../Plugins/openharmony/libs/arm64-v8a
+cd ..
+mkdir -p ../Plugins/openharmony/libs/arm64-v8a
+cp build/libtolua.so ../Plugins/openharmony/libs/arm64-v8a
