@@ -82,6 +82,8 @@ jobs:
                       tar xvfz ohos-sdk-windows_linux-public.tar.gz
                       cd ohos-sdk/linux
                       unzip -o -d ./ native-linux-x64-4.1.7.5-Release.zip
+                      # 安装32位依赖
+                      sudo apt-get install gcc-multilib
                 - name: Build arm64
                   run: |
                     chmod +x build_ohos_arm64.sh
