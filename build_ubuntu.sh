@@ -6,7 +6,7 @@ mkdir -p ubuntu
 cd luajit-2.1
 make clean
 
-make BUILDMODE=static CC="gcc -fPIC -m64 -O2" XCFLAGS=-DLUAJIT_ENABLE_GC64
+make BUILDMODE=static CC="gcc -fPIC -m64 -O2"
 cp src/libluajit.a ../ubuntu/libluajit.a
 make clean
 

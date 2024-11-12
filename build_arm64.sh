@@ -7,7 +7,7 @@ NDKTRIPLE=aarch64-linux-android
 NDKVER=$NDK/toolchains/aarch64-linux-android-4.9
 NDKP=$NDKVER/prebuilt/linux-x86_64/bin/aarch64-linux-android-
 NDKF="--sysroot $NDK/platforms/android-$NDKABI/arch-arm64" 
-NDKARCH="-DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1 -DLUAJIT_ENABLE_GC64=1"
+NDKARCH="-DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1"
 
 make clean
 make HOST_CC="gcc -m64" CROSS=$NDKP TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH"
