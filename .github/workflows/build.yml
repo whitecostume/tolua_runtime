@@ -55,7 +55,7 @@ jobs:
                     compression-level: 0
   
     linux:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
     
         steps:
                 - uses: actions/checkout@v4
@@ -71,7 +71,7 @@ jobs:
                     compression-level: 0
     
     ohos:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
     
         steps:
                 - uses: actions/checkout@v4
@@ -104,7 +104,7 @@ jobs:
 
 
     android:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
     
         steps:
                 - uses: actions/checkout@v4
@@ -139,7 +139,7 @@ jobs:
                     compression-level: 0
     
     publish:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         needs: [osx, ios, window, linux, ohos, android]
         if: startsWith(github.ref, 'refs/tags/')
         steps:
