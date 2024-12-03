@@ -10,9 +10,11 @@ NDKARCH="-DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1"
 # Add include paths and disable C++ features
 NDKINC="-I$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -I$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/aarch64-linux-android"
 NDKDEFS="-D__ANDROID_API__=$NDKABI -D__ANDROID__ -DANDROID"
+NDKCC=$NDKBIN/aarch64-linux-android$NDKABI-clang
+NDKCROSS=$NDKBIN/aarch64-linux-android-
 
 make clean
-make CROSS=$NDKP TARGET_CC="$NDKP/aarch64-linux-android$NDKABI-clang" TARGET_LD="$NDKP/aarch64-linux-android$NDKABI-clang" TARGET_AR="$NDKP/llvm-ar rcus" TARGET_STRIP="$NDKP/llvm-strip" TARGET_SYS=Linux TARGET_FLAGS="--sysroot $NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot $NDKARCH" TARGET_CFLAGS="-fPIC $NDKINC $NDKDEFS"
+make CROSS=$NDKCROSS STATIC_CC=$NDKCC DYNAMIC_CC="$NDKCC -fPIC" TARGET_LD=$NDKCC TARGET_AR="$NDKP/llvm-ar rcus" TARGET_STRIP="$NDKP/llvm-strip" TARGET_SYS=Linux TARGET_FLAGS="--sysroot $NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot $NDKARCH"
 cp ./libluajit.a ../../android/jni/libluajit.a
 make clean
 
