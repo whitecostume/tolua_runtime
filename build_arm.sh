@@ -10,11 +10,12 @@ NDKCXX=$NDKP/clang++
 NDKF="--sysroot $NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
 NDKARCH="-march=armv7-a -mfloat-abi=softfp -Wl,--fix-cortex-a8"
 
-# Add include paths
+# Add include paths and disable C++ features
 NDKINC="-I$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -I$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/arm-linux-androideabi"
+NDKDEFS="-D_USING_LIBCXX=0 -D__ANDROID_API__=$NDKABI -U_Nonnull -U_Nullable -D_Nonnull= -D_Nullable= -U__attribute_pure__"
 
 make clean
-make HOST_CC="gcc -m32" CROSS_CC="$NDKCC -target $NDKTRIPLE" TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH" TARGET_CFLAGS="-fPIC -D__ANDROID_API__=$NDKABI $NDKINC"
+make HOST_CC="gcc -m32" CROSS_CC="$NDKCC -target $NDKTRIPLE" TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH" TARGET_CFLAGS="-fPIC -std=gnu99 $NDKINC $NDKDEFS"
 cp ./libluajit.a ../../android/jni/libluajit.a
 make clean
 
