@@ -120,6 +120,7 @@ jobs:
                 - name: Build arm
                   run: |
                     export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
+                    sudo apt-get install gcc-multilib
                     chmod 777 ./build_arm.sh
                     ./build_arm.sh
                 - name: Upload
