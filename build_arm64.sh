@@ -4,9 +4,8 @@ cd luajit-2.1/src
 NDK=$ANDROID_NDK_HOME
 NDKABI=21
 NDKTRIPLE=aarch64-linux-android
-NDKVER=$NDK/toolchains/aarch64-linux-android-4.9
-NDKP=$NDKVER/prebuilt/linux-x86_64/bin/aarch64-linux-android-
-NDKF="--sysroot $NDK/platforms/android-$NDKABI/arch-arm64" 
+NDKP=$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/$NDKTRIPLE-
+NDKF="--sysroot $NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
 NDKARCH="-DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1"
 
 make clean
