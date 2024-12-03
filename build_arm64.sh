@@ -11,7 +11,7 @@ NDKF="--sysroot $NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
 NDKARCH="-DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1"
 
 make clean
-make HOST_CC="gcc -m64" CROSS=$NDKP CROSS_CC="$NDKCC -target $NDKTRIPLE" TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH"
+make HOST_CC="gcc -m64" CROSS_CC="$NDKCC -target $NDKTRIPLE" TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH"
 cp ./libluajit.a ../../android/jni/libluajit.a
 make clean
 
