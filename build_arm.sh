@@ -12,7 +12,7 @@ NDKARCH="-march=armv7-a -mfloat-abi=softfp -Wl,--fix-cortex-a8"
 
 # Add include paths and disable C++ features
 NDKINC="-I$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -I$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/arm-linux-androideabi"
-NDKDEFS="-D_USING_LIBCXX=0 -D__ANDROID_API__=$NDKABI -U_Nonnull -U_Nullable -D_Nonnull= -D_Nullable= -U__attribute_pure__"
+NDKDEFS="-D_USING_LIBCXX=0 -D__ANDROID_API__=$NDKABI -U_Nonnull -U_Nullable -D_Nonnull= -D_Nullable= -U__attribute_pure__ -D__BIONIC_COMPLICATED_NULLNESS= -D__printflike(x,y)= -D__REMOVED_IN(x,y)= -D__INTRODUCED_IN(x)= -D__BIONIC_FORTIFY=0"
 
 make clean
 make HOST_CC="gcc -m32" CROSS_CC="$NDKCC -target $NDKTRIPLE" TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH" TARGET_CFLAGS="-fPIC -std=gnu99 $NDKINC $NDKDEFS"
