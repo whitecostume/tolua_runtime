@@ -3,19 +3,16 @@ cd luajit-2.1/src
 # Android/ARM, armeabi-v7a (ARMv7 VFP), Android 4.0+ (ICS)
 NDK=$ANDROID_NDK_HOME
 NDKABI=21
-NDKTRIPLE=armv7a-linux-androideabi$NDKABI
-NDKP=$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/
-NDKCC=$NDKP/clang
-NDKCXX=$NDKP/clang++
-NDKF="--sysroot $NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
+NDKVER=$NDK/toolchains/llvm/prebuilt/linux-x86_64
+NDKP=$NDKVER/bin/
 NDKARCH="-march=armv7-a -mfloat-abi=softfp -Wl,--fix-cortex-a8"
 
 # Add include paths and disable C++ features
 NDKINC="-I$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -I$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/arm-linux-androideabi"
-NDKDEFS="-D_USING_LIBCXX=0 -D__ANDROID_API__=$NDKABI -U_Nonnull -U_Nullable -D_Nonnull= -D_Nullable= -U__attribute_pure__ -D__BIONIC_COMPLICATED_NULLNESS= -D__printflike(x,y)= -D__REMOVED_IN(x,y)= -D__INTRODUCED_IN(x)= -D__BIONIC_FORTIFY=0"
+NDKDEFS="-D__ANDROID_API__=$NDKABI -D__ANDROID__ -DANDROID"
 
 make clean
-make HOST_CC="gcc -m32" CROSS_CC="$NDKCC -target $NDKTRIPLE" TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH" TARGET_CFLAGS="-fPIC -std=gnu99 $NDKINC $NDKDEFS"
+make HOST_CC="gcc -m32" CROSS=$NDKP TARGET_CC="$NDKP/armv7a-linux-androideabi$NDKABI-clang" TARGET_LD="$NDKP/armv7a-linux-androideabi$NDKABI-clang" TARGET_AR="$NDKP/llvm-ar rcus" TARGET_STRIP="$NDKP/llvm-strip" TARGET_SYS=Linux TARGET_FLAGS="--sysroot $NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot $NDKARCH" TARGET_CFLAGS="-fPIC $NDKINC $NDKDEFS"
 cp ./libluajit.a ../../android/jni/libluajit.a
 make clean
 
