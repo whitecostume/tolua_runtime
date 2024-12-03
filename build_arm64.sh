@@ -7,11 +7,14 @@ NDKTRIPLE=aarch64-linux-android$NDKABI
 NDKP=$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/
 NDKCC=$NDKP/clang
 NDKCXX=$NDKP/clang++
-NDKF="--sysroot $NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot -D__ANDROID_API__=$NDKABI"
+NDKF="--sysroot $NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
 NDKARCH="-DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1"
 
+# Add include paths
+NDKINC="-I$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -I$NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/aarch64-linux-android"
+
 make clean
-make HOST_CC="gcc -m64" CROSS_CC="$NDKCC -target $NDKTRIPLE" TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH" TARGET_CFLAGS="-fPIC -std=c11"
+make HOST_CC="gcc -m64" CROSS_CC="$NDKCC -target $NDKTRIPLE" TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH" TARGET_CFLAGS="-fPIC -D__ANDROID_API__=$NDKABI $NDKINC"
 cp ./libluajit.a ../../android/jni/libluajit.a
 make clean
 
