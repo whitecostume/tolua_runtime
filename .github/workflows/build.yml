@@ -110,13 +110,13 @@ jobs:
                 - uses: actions/checkout@v4
                 - name: Install NDK r15c
                   run: |
-                    wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r15c-linux-x86_64.zip
+                    wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r28b-linux.zip
                     sudo apt install unzip -y
                     unzip -q NDK
                     sudo apt-get install libncurses5
                 - name: Build arm64
                   run: |
-                    export ANDROID_NDK_HOME=$(pwd)/android-ndk-r15c
+                    export ANDROID_NDK_HOME=$(pwd)/android-ndk-r28b
                     chmod 777 ./build_arm64.sh
                     ./build_arm64.sh
                 - name: Install NDK r10e
