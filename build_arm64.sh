@@ -1,23 +1,18 @@
 cd luajit-2.1/src
 
-# Android/ARM, armeabi-v7a (ARMv7 VFP), Android 4.0+ (ICS)
+# Android/ARM64, arm64-v8a (AArch64), Android 5.0+
 NDK=$ANDROID_NDK_HOME
 NDKABI=21
-NDKTRIPLE=aarch64-linux-android
-TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/linux-x86_64
-NDKP=$TOOLCHAIN/bin/aarch64-linux-android
-NDKF="--sysroot=$TOOLCHAIN/sysroot" 
+NDKVER=$NDK/toolchains/llvm/prebuilt/linux-x86_64
+NDKP=$NDKVER/bin/
 NDKARCH="-DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1"
 
+# Add include paths and disable C++ features
+NDKCC=$NDKP/aarch64-linux-android$NDKABI-clang
+NDKCROSS=$NDKP/aarch64-linux-android-
+
 make clean
-
- # 设置编译工具
-export CC=$NDKP$NDKABI-clang
-export AR=$TOOLCHAIN/bin/llvm-ar
-export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
-export STRIP=$TOOLCHAIN/bin/llvm-strip
-
-make HOST_CC="gcc -m64" CROSS=$NDKP- TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH"
+make HOST_CC="clang -m64" CROSS=$NDKCROSS STATIC_CC=$NDKCC DYNAMIC_CC="$NDKCC -fPIC -O3" TARGET_LD=$NDKCC TARGET_AR="$NDKP/llvm-ar rcus" TARGET_STRIP="$NDKP/llvm-strip" TARGET_SYS=Linux TARGET_FLAGS="--sysroot $NDK/toolchains/llvm/prebuilt/linux-x86_64/sysroot $NDKARCH"
 cp ./libluajit.a ../../android/jni/libluajit.a
 make clean
 
