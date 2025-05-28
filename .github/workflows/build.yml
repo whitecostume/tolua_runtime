@@ -111,7 +111,7 @@ jobs:
                 - name: Setup Android NDK
                   uses: nttld/setup-ndk@v1
                   with:
-                    ndk-version: r21e
+                    ndk-version: r28b
                 - name: Build arm64
                   run: |
                     export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
