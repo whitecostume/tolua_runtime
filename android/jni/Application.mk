@@ -9,3 +9,5 @@
 
  #选择GCC编译器版本,64位ABI默认使用版本4.9,32位ABI默认使用版本4.8,要选择Clang的版本,变量定义为clang3.4、clang3.5或clang
  NDK_TOOLCHAIN_VERSION := clang
+
+ APP_SUPPORT_FLEXIBLE_PAGE_SIZES := true
